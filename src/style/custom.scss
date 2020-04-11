@@ -1,0 +1,42 @@
+.rounded-card {
+  max-width: 540px;
+  border-radius: 13px;
+}
+
+.card-image {
+  padding: 5px;
+  height: 350px;
+  width: auto;
+}
+
+.card-text {
+  font-size: 12px;
+  text-align: justify;
+}
+
+.data-container {
+  border-radius: 13px;
+  height: 300px;
+}
+
+.mana-icon {
+  height: 22px;
+  width: 22px;
+  margin: 2px;
+}
+
+.icon-column {
+  max-width:25px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.number-icon {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.image-shadow {
+  -webkit-filter: drop-shadow(2px 2px 2px #6c757d);
+  filter: drop-shadow(2px 2px 2px #6c757d);
+}
