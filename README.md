@@ -1,4 +1,4 @@
-# solitaire
+# magic - cards info
 
 ## Project setup
 ```
