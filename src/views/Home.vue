@@ -1,18 +1,45 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <b-row>
+      <b-col cols="12">
+        <MainControls />
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col cols="12" class="mt-3">
+        <MagicCard
+          v-if="getCardInfo.id"
+          :cardInfo="getCardInfo" />
+      </b-col>
+    </b-row>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import { mapGetters } from 'vuex';
+import MagicCard from '@/components/MagicCard.vue';
+import MainControls from '@/components/MainControls.vue';
 
 export default {
   name: 'Home',
+  created() {
+    this.EventBus.$on('cardsList', (cardsList) => {
+      this.cardsList = cardsList;
+    });
+  },
+  data() {
+    return {
+      cardsList: [],
+    };
+  },
   components: {
-    HelloWorld,
+    MagicCard,
+    MainControls,
+  },
+  computed: {
+    ...mapGetters([
+      'getCardInfo',
+    ]),
   },
 };
 </script>
