@@ -1,0 +1,215 @@
+{
+  "name": "Mana",
+  "children": [
+    {
+      "name": "W",
+      "color": "#ffffcc",
+      "children": [
+        {
+          "name": "all",
+          "value": 3031
+        },
+        {
+          "name": "artifacts",
+          "value": 35
+        },
+        {
+          "name": "creatures",
+          "value": 1769
+        },
+        {
+          "name": "enchantments",
+          "value": 542
+        },
+        {
+          "name": "instants",
+          "value": 477
+        },
+        {
+          "name": "sorceries",
+          "value": 247
+        }
+      ]
+    },
+    {
+      "name": "U",
+      "color": "#99ccff",
+      "children": [
+        {
+          "name": "all",
+          "value": 2967
+        },
+        {
+          "name": "artifacts",
+          "value": 42
+        },
+        {
+          "name": "creatures",
+          "value": 1551
+        },
+        {
+          "name": "enchantments",
+          "value": 488
+        },
+        {
+          "name": "instants",
+          "value": 594
+        },
+        {
+          "name": "sorceries",
+          "value": 341
+        }
+      ]
+    },
+    {
+      "name": "B",
+      "color": "#cccccc",
+      "children": [
+        {
+          "name": "all",
+          "value": 3010
+        },
+        {
+          "name": "artifacts",
+          "value": 19
+        },
+        {
+          "name": "creatures",
+          "value": 1738
+        },
+        {
+          "name": "enchantments",
+          "value": 416
+        },
+        {
+          "name": "instants",
+          "value": 322
+        },
+        {
+          "name": "sorceries",
+          "value": 550
+        }
+      ]
+    },
+    {
+      "name": "R",
+      "color": "#ff9999",
+      "children": [
+        {
+          "name": "all",
+          "value": 2944
+        },
+        {
+          "name": "artifacts",
+          "value": 11
+        },
+        {
+          "name": "creatures",
+          "value": 1714
+        },
+        {
+          "name": "enchantments",
+          "value": 369
+        },
+        {
+          "name": "instants",
+          "value": 434
+        },
+        {
+          "name": "sorceries",
+          "value": 480
+        }
+      ]
+    },
+    {
+      "name": "G",
+      "color": "#99cc99",
+      "children": [
+        {
+          "name": "all",
+          "value": 2981
+        },
+        {
+          "name": "artifacts",
+          "value":  8
+        },
+        {
+          "name": "creatures",
+          "value": 1861
+        },
+        {
+          "name": "enchantments",
+          "value": 404
+        },
+        {
+          "name": "instants",
+          "value": 357
+        },
+        {
+          "name": "sorceries",
+          "value": 371
+        }
+      ]
+    },
+    {
+      "name": "C",
+      "color": "#cccccc",
+      "children": [
+        {
+          "name": "all",
+          "value": 2747
+        },
+        {
+          "name": "artifacts",
+          "value": 91
+        },
+        {
+          "name": "creatures",
+          "value": 682
+        },
+        {
+          "name": "enchantments",
+          "value": 15
+        },
+        {
+          "name": "instants",
+          "value": 21
+        },
+        {
+          "name": "sorceries",
+          "value": 15
+        }
+      ]
+    },
+  {
+      "name": "M",
+      "color": "#cc9966",
+      "children": [
+        {
+          "name": "all",
+          "value": 2138
+        },
+        {
+          "name": "artifacts",
+          "value": 55
+        },
+        {
+          "name": "creatures",
+          "value": 1289
+        },
+        {
+          "name": "enchantments",
+          "value": 187
+        },
+        {
+          "name": "instants",
+          "value": 264
+        },
+        {
+          "name": "sorceries",
+          "value": 246
+        }
+      ]
+    }
+  ]
+}

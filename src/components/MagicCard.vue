@@ -2,8 +2,10 @@
   <b-card
     no-body
     class="rounded-card image-shadow">
-    <b-card-header>
-      {{ cardInfo.name }}
+    <b-card-header class="text-left">
+      <strong>
+        {{ cardInfo.name }}
+      </strong>
     </b-card-header>
     <b-row no-gutters>
       <b-col md="6">
@@ -15,6 +17,9 @@
         <b-card-body>
           <b-card-text v-html="htmlText">
           </b-card-text>
+          <p class="text-left flavor">
+            <small>{{ cardInfo.flavor }}</small>
+          </p>
         </b-card-body>
       </b-col>
     </b-row>
@@ -23,7 +28,9 @@
         <b-col cols="12">
           <p
             class="text-left mb-1">
-            {{ cardInfo.type }}
+            <strong>
+              {{ cardInfo.type }}
+            </strong>
           </p>
         </b-col>
       </b-row>
@@ -43,7 +50,7 @@
             v-for="(color, index) in getManaCostIcon(cardInfo.manaCost)"
             :key="index">
             <svg
-              class="image-shadow"
+              class="svg-icon image-shadow"
               height="30"
               width="30"
               v-if="color.number">
@@ -51,7 +58,7 @@
                 <circle
                   cx="15"
                   cy="15"
-                  r="11"
+                  r="10"
                   stroke="#CBC2BF"
                   stroke-width="1"
                   fill="#CBC2BF" />
@@ -60,7 +67,7 @@
                   x="50%"
                   y="50%"
                   text-anchor="middle"
-                  dy=".3em">{{ color.number }}</text>
+                  dy=".4em">{{ color.number }}</text>
               </g>
             </svg>
             <img
@@ -115,7 +122,8 @@ export default {
     },
     getManaCostText() {
       const regex = /{([^}]+)}/g;
-      this.htmlText = this.cardInfo.text.replace(regex, (item) => {
+      const text = this.cardInfo.text || this.cardInfo.flavor;
+      this.htmlText = text.replace(regex, (item) => {
         const matched = item.replace(/\{|\}/gi, '');
         if (!isNaN(matched)) {
           return `<svg

@@ -25,7 +25,7 @@
       class="ml-2"
       type="button"
       variant="primary">
-        Criar dados
+        Magic Stats
     </b-button>
     <b-spinner
       v-if="loadingCard"
@@ -37,7 +37,6 @@
 
 <script>
 import { mapActions, mapMutations } from 'vuex';
-import { Cards } from '@/services/cards';
 
 export default {
   name: 'MainControls',
@@ -56,16 +55,11 @@ export default {
     ]),
     createData() {
       this.setEmptyCardInfo();
-      this.loadingCard = true;
-      Cards()
-        .then((res) => {
-          this.loadingCard = false;
-          this.EventBus.$emit('cardsList', res);
-        })
-        .catch((err) => console.log('err =>', err));
+      this.EventBus.$emit('magicStats');
     },
     getCardById() {
       this.setEmptyCardInfo();
+      this.EventBus.$emit('cardInfo');
       this.loadingCard = true;
       this.GetCardById(this.id)
         .then((res) => {
