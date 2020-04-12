@@ -1,13 +1,16 @@
 <template>
   <div class="home">
-    <Alert
-      v-if="showAlert"
-      :alertMessage="alertMessage"/>
     <b-row>
       <b-col cols="12">
         <MainControls />
       </b-col>
     </b-row>
+    <d-row v-if="showAlert">
+      <b-col cols="12" class="mt-3">
+        <Alert
+          :alertMessage="alertMessage"/>
+      </b-col>
+    </d-row>
     <b-row>
       <b-col cols="12" class="mt-3">
         <CardsData v-if="isCardsData" />
