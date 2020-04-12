@@ -21,10 +21,17 @@
         Procurar
     </b-button>
     <b-button
+      @click="getRandomCard"
+      class="ml-1"
+      type="button"
+      variant="primary">
+        Random Card
+    </b-button>
+    <b-button
       @click="createData"
       class="ml-2"
       type="button"
-      variant="primary">
+      variant="success">
         Mana Stats
     </b-button>
     <b-spinner
@@ -83,6 +90,23 @@ export default {
       this.EventBus.$emit('magicStats');
     },
     getCardById() {
+      this.setEmptyCardInfo();
+      this.EventBus.$emit('hideAlert');
+      this.EventBus.$emit('cardInfo');
+      this.loadingCard = true;
+      this.GetCardById(this.id)
+        .then((res) => {
+          console.log('res =>', res);
+          this.loadingCard = false;
+        })
+        .catch(() => {
+          this.loadingCard = false;
+          this.EventBus.$emit('showAlert', this.id);
+        });
+    },
+    getRandomCard() {
+      const id = Math.floor(Math.random() * 50000) + 1;
+      this.id = id;
       this.setEmptyCardInfo();
       this.EventBus.$emit('hideAlert');
       this.EventBus.$emit('cardInfo');

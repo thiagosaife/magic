@@ -3,9 +3,21 @@
     no-body
     class="rounded-card image-shadow">
     <b-card-header class="text-left">
-      <strong>
-        {{ cardInfo.name }}
-      </strong>
+      <b-row>
+        <b-col cols="6">
+          <strong>
+            {{ cardInfo.name }}
+          </strong>
+        </b-col>
+        <b-col cols="6">
+          <p class="float-right text-right">
+            <small>{{ cardInfo.type }}</small>
+          </p>
+          <img
+            class="float-right symbol-icon mr-2 image-shadow"
+            :src="getTypeSymbol()" />
+        </b-col>
+      </b-row>
     </b-card-header>
     <b-row no-gutters>
       <b-col md="6">
@@ -42,7 +54,9 @@
           <b-col cols="12">
             <p
               class="text-left mb-1">
-              Mana Cost: {{ cardInfo.cmc }}
+              <small>
+                <strong>Mana Cost: </strong>{{ cardInfo.cmc }}
+              </small>
             </p>
           </b-col>
         </b-row>
@@ -75,7 +89,7 @@
             </svg>
             <img
               v-else
-              class="mana-icon ml-1 mt-1 image-shadow"
+              class="mana-icon ml-1 image-shadow"
               :src="require(`@/assets/mana/${color}.png`)" />
           </b-col>
         </b-row>
@@ -129,6 +143,10 @@ export default {
           return item;
         });
     },
+    getTypeSymbol() {
+      const symbol = `${this.cardInfo.types[0]}_symbol`;
+      return require(`@/assets/mana/${symbol}.png`);
+    },
     getManaCostText() {
       const regex = /{([^}]+)}/g;
       const text = this.cardInfo.text || this.cardInfo.flavor;
@@ -157,7 +175,7 @@ export default {
           </svg>`;
         }
         const src = require(`@/assets/mana/${matched}.png`);
-        return `<img class="mana-icon image-shadow" src="${src}" />`;
+        return `<img class="text-icon image-shadow" src="${src}" />`;
       });
     },
   },
