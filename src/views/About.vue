@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h3>Magic Cards Info</h3>
-    <small>マジキカルドインフ</small>
+    <small>メ一ジキカルドインフ</small>
     <p class="about pt-3">
       Infos, stats and sprites: <a href="https://mtg.gamepedia.com/Magic:_The_Gathering/Statistics_and_trivia" target="_blank">MTG Wiki</a>
     </p>
