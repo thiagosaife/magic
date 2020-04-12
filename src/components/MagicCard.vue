@@ -231,7 +231,7 @@ export default {
               <circle
                 cx="15"
                 cy="15"
-                r="11"
+                r="10"
                 stroke="#CBC2BF"
                 stroke-width="1"
                 fill="#CBC2BF"/>
