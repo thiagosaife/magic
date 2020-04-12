@@ -1,6 +1,6 @@
 # magic - cards info
 
-## Running page
+## Running project
 
 https://thiagosaife.github.io/magic/
 
