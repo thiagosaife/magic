@@ -40,12 +40,11 @@ export function CollapsibleTree(data, element) {
     .attr('cursor', 'pointer')
     .attr('pointer-events', 'all');
 
-  function update(source) {
+  const update = (source) => {
     const duration = d3.event && d3.event.altKey ? 2500 : 250;
     const nodes = root.descendants().reverse();
     const links = root.links();
 
-    // cluster(root);
     tree(root);
 
     let left = root;
@@ -138,8 +137,7 @@ export function CollapsibleTree(data, element) {
       d.x0 = d.x;
       d.y0 = d.y;
     });
-  }
-
+  };
   update(root);
 
   return svg.node();
