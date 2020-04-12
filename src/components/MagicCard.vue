@@ -6,18 +6,26 @@
       class="text-left pb-0"
       :class="`card-color_${getFirstColor}`">
       <b-row>
-        <b-col cols="4">
-          <strong>
-            {{ cardInfo.name }}
-          </strong>
-        </b-col>
-        <b-col cols="8">
-          <p class="float-right text-right">
-            <small>{{ cardInfo.type }}</small>
+        <b-col cols="6">
+          <p>
+            <strong>
+              {{ cardInfo.name }}
+            </strong>
           </p>
-          <img
-            class="float-right symbol-icon mr-2 image-shadow"
-            :src="getTypeSymbol()" />
+        </b-col>
+        <b-col cols="6">
+          <b-row>
+            <b-col cols="10" class="float-right text-right p-0">
+              <p>
+                <small>{{ cardInfo.type }}</small>
+              </p>
+            </b-col>
+            <b-col cols="2">
+              <img
+                class="float-right symbol-icon image-shadow"
+                :src="getTypeSymbol()" />
+            </b-col>
+          </b-row>
         </b-col>
       </b-row>
     </b-card-header>
