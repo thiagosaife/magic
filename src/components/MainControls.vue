@@ -95,8 +95,7 @@ export default {
       this.EventBus.$emit('cardInfo');
       this.loadingCard = true;
       this.GetCardById(this.id)
-        .then((res) => {
-          console.log('res =>', res);
+        .then(() => {
           this.loadingCard = false;
         })
         .catch(() => {
@@ -112,8 +111,7 @@ export default {
       this.EventBus.$emit('cardInfo');
       this.loadingCard = true;
       this.GetCardById(this.id)
-        .then((res) => {
-          console.log('res =>', res);
+        .then(() => {
           this.loadingCard = false;
         })
         .catch(() => {

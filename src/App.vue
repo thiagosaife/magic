@@ -8,6 +8,18 @@
   </b-container>
 </template>
 
+<script>
+export default {
+  created() {
+    const favIcons = ['B', 'C', 'G', 'M', 'R', 'U', 'W'];
+    const id = Math.floor(Math.random() * favIcons.length) + 1;
+    const favicon = document.getElementById('favicon');
+    const image = `./${favIcons[id]}.ico`;
+    favicon.setAttribute('href', image);
+  },
+};
+</script>
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

@@ -19,6 +19,7 @@ module.exports = {
     'import/no-dynamic-require': 'off',
     'no-underscore-dangle': 'off',
     'no-param-reassign': 'off',
+    'no-nested-ternary': 'off',
   },
   overrides: [
     {
