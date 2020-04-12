@@ -1,3 +1,7 @@
+.about {
+  line-height: 15px;
+}
+
 .rounded-card {
   max-width: 540px;
   border-radius: 13px;
@@ -48,4 +52,10 @@
 
 .svg-icon {
   margin-top: -1px;
+}
+
+.image-loader {
+  position: absolute;
+  left: 40%;
+  top: 40%;
 }

@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <Alert
+      v-if="showAlert"
+      :alertMessage="alertMessage"/>
     <b-row>
       <b-col cols="12">
         <MainControls />
@@ -7,9 +10,9 @@
     </b-row>
     <b-row>
       <b-col cols="12" class="mt-3">
-        <CardsData v-if="cardsData" />
+        <CardsData v-if="isCardsData" />
         <MagicCard
-          v-if="getCardInfo.id && !cardsData"
+          v-if="getCardInfo.id && !isCardsData"
           :cardInfo="getCardInfo" />
       </b-col>
     </b-row>
@@ -17,7 +20,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
+import Alert from '@/components/Alert.vue';
 import CardsData from '@/components/CardsData.vue';
 import MagicCard from '@/components/MagicCard.vue';
 import MainControls from '@/components/MainControls.vue';
@@ -26,18 +30,27 @@ export default {
   name: 'Home',
   created() {
     this.EventBus.$on('cardInfo', () => {
-      this.cardsData = false;
+      this.setCardsData(false);
+    });
+    this.EventBus.$on('hideAlert', () => {
+      this.showAlert = false;
     });
     this.EventBus.$on('magicStats', () => {
-      this.cardsData = true;
+      this.setCardsData(true);
+    });
+    this.EventBus.$on('showAlert', (id) => {
+      this.alertMessage = id;
+      this.showAlert = true;
     });
   },
   data() {
     return {
-      cardsData: false,
+      alertMessage: '',
+      showAlert: false,
     };
   },
   components: {
+    Alert,
     CardsData,
     MagicCard,
     MainControls,
@@ -45,6 +58,12 @@ export default {
   computed: {
     ...mapGetters([
       'getCardInfo',
+      'isCardsData',
+    ]),
+  },
+  methods: {
+    ...mapMutations([
+      'setCardsData',
     ]),
   },
 };

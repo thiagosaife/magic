@@ -17,6 +17,8 @@ module.exports = {
     'no-restricted-globals': 'off',
     'global-require': 'off',
     'import/no-dynamic-require': 'off',
+    'no-underscore-dangle': 'off',
+    'no-param-reassign': 'off',
   },
   overrides: [
     {

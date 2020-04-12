@@ -1,6 +1,6 @@
 <template>
   <b-form
-    @submit.prevent="getCardById"
+    @submit.prevent="id ? getCardById() : null"
     inline>
     <label
       class="sr-only"
@@ -25,18 +25,27 @@
       class="ml-2"
       type="button"
       variant="primary">
-        Magic Stats
+        Mana Stats
     </b-button>
     <b-spinner
       v-if="loadingCard"
       class="ml-2"
       variant="primary"
       label="Spinning" />
+    <div v-if="isCardsData">
+      <b-form-checkbox
+        class="ml-2"
+        v-model="treeStatus"
+        name="check-button"
+        switch>
+        {{ isTree ?  'TreeMap' : 'Collapsible'}}
+      </b-form-checkbox>
+    </div>
   </b-form>
 </template>
 
 <script>
-import { mapActions, mapMutations } from 'vuex';
+import { mapActions, mapMutations, mapGetters } from 'vuex';
 
 export default {
   name: 'MainControls',
@@ -46,19 +55,36 @@ export default {
       loadingCard: false,
     };
   },
+  computed: {
+    ...mapGetters([
+      'isCardsData',
+      'isTree',
+    ]),
+    treeStatus: {
+      get() {
+        return this.isTree;
+      },
+      set() {
+        this.setTreeOrCollapsible();
+      },
+    },
+  },
   methods: {
     ...mapActions([
       'GetCardById',
     ]),
     ...mapMutations([
       'setEmptyCardInfo',
+      'setTreeOrCollapsible',
     ]),
     createData() {
       this.setEmptyCardInfo();
+      this.EventBus.$emit('hideAlert');
       this.EventBus.$emit('magicStats');
     },
     getCardById() {
       this.setEmptyCardInfo();
+      this.EventBus.$emit('hideAlert');
       this.EventBus.$emit('cardInfo');
       this.loadingCard = true;
       this.GetCardById(this.id)
@@ -66,7 +92,10 @@ export default {
           console.log('res =>', res);
           this.loadingCard = false;
         })
-        .catch((err) => console.log(err));
+        .catch(() => {
+          this.loadingCard = false;
+          this.EventBus.$emit('showAlert', this.id);
+        });
     },
   },
 };

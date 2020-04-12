@@ -9,9 +9,12 @@
     </b-card-header>
     <b-row no-gutters>
       <b-col md="6">
-        <b-card-img
-          :src="cardInfo.imageUrl"
-          class="card-image"/>
+        <div id="card-image" />
+        <b-spinner
+          v-if="loadingImage"
+          class="ml-2 image-loader"
+          variant="primary"
+          label="Spinning" />
       </b-col>
       <b-col md="6">
         <b-card-body>
@@ -93,15 +96,21 @@ export default {
   data() {
     return {
       htmlText: '',
+      loadingImage: true,
     };
   },
-  created() {
+  mounted() {
     this.getManaCostText(this.cardInfo.text);
+    const img = document.createElement('img');
+    img.src = this.cardInfo.imageUrl;
+    img.onload = () => {
+      this.loadingImage = false;
+    };
+    const imageContainer = document.getElementById('card-image');
+    imageContainer.setAttribute('class', 'mt-3 card-image');
+    imageContainer.appendChild(img);
   },
   computed: {
-    getInfoColors() {
-      return this.cardInfo.colors;
-    },
     getInfoTypes() {
       return this.cardInfo.types;
     },
