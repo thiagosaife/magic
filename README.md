@@ -1,5 +1,9 @@
 # magic - cards info
 
+## Running page
+```
+https://thiagosaife.github.io/magic/
+```
 ## Project setup
 ```
 npm install
