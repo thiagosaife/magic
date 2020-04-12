@@ -2,14 +2,16 @@
   <b-card
     no-body
     class="rounded-card image-shadow">
-    <b-card-header class="text-left pb-0">
+    <b-card-header
+      class="text-left pb-0"
+      :class="`card-color_${getFirstColor}`">
       <b-row>
-        <b-col cols="6">
+        <b-col cols="4">
           <strong>
             {{ cardInfo.name }}
           </strong>
         </b-col>
-        <b-col cols="6">
+        <b-col cols="8">
           <p class="float-right text-right">
             <small>{{ cardInfo.type }}</small>
           </p>
@@ -26,6 +28,7 @@
           <b-spinner
             v-if="loadingImage"
             class="ml-2 image-loader"
+            :class="`spinner-border_${getFirstColor}`"
             variant="primary"
             label="Spinning" />
         </b-col>
@@ -47,7 +50,8 @@
         </b-col>
       </b-row>
     </b-card-body>
-    <b-card-footer>
+    <b-card-footer
+      :class="`card-color_${getFirstColor}`">
       <b-row>
         <b-col cols="6">
           <div v-if="isLand">
@@ -148,6 +152,9 @@ export default {
     imageContainer.appendChild(img);
   },
   computed: {
+    getFirstColor() {
+      return this.cardInfo.colorIdentity[0];
+    },
     getInfoItems() {
       const infoTypes = [
         {

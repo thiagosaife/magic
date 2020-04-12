@@ -5,12 +5,12 @@
         <MainControls />
       </b-col>
     </b-row>
-    <d-row v-if="showAlert">
+    <b-row v-if="showAlert">
       <b-col cols="12" class="mt-3">
         <Alert
           :alertMessage="alertMessage"/>
       </b-col>
-    </d-row>
+    </b-row>
     <b-row>
       <b-col cols="12" class="mt-3">
         <CardsData v-if="isCardsData" />
