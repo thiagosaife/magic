@@ -2,11 +2,11 @@ import * as d3 from 'd3';
 
 const dx = 10;
 const width = 954;
-const dy = width / 3;
+const dy = 350;
 const diagonal = d3.linkHorizontal().x((d) => d.y).y((d) => d.x);
 const tree = d3.tree()
   .nodeSize([dx, dy])
-  .separation((a) => (a.parent.depth === 1 ? 1 : 2));
+  .separation((a, b) => (a.depth === 1 ? 2 : a.parent === b.parent ? 1 : 2));
 const margin = ({
   top: 10, right: 120, bottom: 10, left: 40,
 });
@@ -45,6 +45,7 @@ export function CollapsibleTree(data, element) {
     const nodes = root.descendants().reverse();
     const links = root.links();
 
+    // cluster(root);
     tree(root);
 
     let left = root;

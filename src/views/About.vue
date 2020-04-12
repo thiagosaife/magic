@@ -1,12 +1,12 @@
 <template>
   <div class="about">
     <h3>Magic Cards Info</h3>
-    <small>マギきカルづスインフ</small>
+    <small>マジキカルドインフ</small>
     <p class="about pt-3">
-      Infos, stats and sprites: <a href="https://mtg.gamepedia.com/" target="_blank">https://mtg.gamepedia.com/</a>
+      Infos, stats and sprites: <a href="https://mtg.gamepedia.com/" target="_blank">MTG Wiki</a>
     </p>
     <p>
-      API: <a href="https://docs.magicthegathering.io/" target="_blank">https://docs.magicthegathering.io/</a>
+      API: <a href="https://docs.magicthegathering.io/" target="_blank">MTG Developers</a>
     </p>
   </div>
 </template>
