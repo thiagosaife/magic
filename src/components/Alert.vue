@@ -7,7 +7,7 @@ export default {
   name: 'Alert',
   props: {
     alertMessage: {
-      type: String,
+      type: Number,
       required: true,
     },
   },

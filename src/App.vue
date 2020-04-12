@@ -15,7 +15,7 @@ export default {
     const id = Math.floor(Math.random() * favIcons.length) + 1;
     const favicon = document.getElementById('favicon');
     const image = `./${favIcons[id]}.ico`;
-    favicon.setAttribute('href', image);
+    favicon.setAttribute('href', image || `./${favIcons[0]}.ico`);
   },
 };
 </script>

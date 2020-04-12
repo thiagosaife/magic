@@ -4,7 +4,6 @@
 
 .rounded-card {
   max-width: 540px;
-  border-radius: 13px;
 }
 
 .card-image {
@@ -82,4 +81,46 @@
 
 .group-item {
   font-size: 13px;
+}
+
+.spinner-border {
+  &_B, &_C {
+    color: #cccccc !important;
+  }
+  &_G {
+    color: #99cc99 !important;
+  }
+  &_M {
+    color: #cc9966 !important;
+  }
+  &_R {
+    color: #ff9999 !important;
+  }
+  &_W {
+    color: #ffffcc !important;
+  }
+  &_U {
+    color: #99ccff !important;
+  }
+}
+
+.card-color {
+  &_B, &_C {
+    background-color: #cccccc !important;
+  }
+  &_G {
+    background-color: #99cc99 !important;
+  }
+  &_M {
+    background-color: #cc9966 !important;
+  }
+  &_R {
+    background-color: #ff9999 !important;
+  }
+  &_W {
+    background-color: #ffffcc !important;
+  }
+  &_U {
+    background-color: #99ccff !important;
+  }
 }
