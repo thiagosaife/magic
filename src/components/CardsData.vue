@@ -1,50 +1,44 @@
 <template>
-  <b-card
-    no-body
-    class="image-shadow data-container">
-    <b-card-body id="card-body">
-    </b-card-body>
+  <b-card>
+    <b-card-body id="tree-card" />
   </b-card>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import { TreeMap } from '@/services/treemap';
+import { CollapsibleTree } from '@/services/collapsibleTree';
+import Data from '@/data/stats.json';
+
 export default {
   name: 'CardsData',
-  props: {
-    cardListInfo: {
-      type: Array,
-      required: true,
-    },
-  },
-  mounted() {
-    this.reducedCardsList = this.reduceCardsList(this.cardListInfo);
-    this.createChart();
-  },
   data() {
     return {
-      keysToKeep: [
-        'cmc',
-        'name',
-        'rarity',
-        'artist',
-        'power',
-        'subtypes',
-        'types',
-        'toughness',
-      ],
-      reducedCardsList: [],
+      Data,
     };
   },
+  computed: {
+    ...mapGetters([
+      'isTree',
+    ]),
+  },
+  mounted() {
+    this.selectD3();
+  },
   methods: {
-    reduceCardsList(cards) {
-      return cards.map((item) => this.keysToKeep
-        .reduce((acc, card) => {
-          acc[card] = item[card];
-          return acc;
-        }, {}));
+    selectD3() {
+      const data = this.Data;
+      const element = '#tree-card';
+      if (this.isTree) {
+        TreeMap(data, element);
+        return;
+      }
+      CollapsibleTree(data, element);
     },
-    createChart() {
-      // const data = this.reducedCardsList;
+  },
+  watch: {
+    isTree() {
+      this.selectD3();
     },
   },
 };
